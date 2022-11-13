@@ -12,7 +12,7 @@ def init_connection():
 conn = init_connection()
 
 # Form the cursor
-c = conn.cursor()
+c = conn.cursor(buffered=True)
 
 def sql_executor(raw_sql_code):
     c.execute(raw_sql_code)
