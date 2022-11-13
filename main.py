@@ -43,7 +43,7 @@ def main():
                 # Return result
                 query_result = sql_executor(raw_code)
                 
-                st.table(query_result)
+                st.write(query_result)
     else:
         st.subheader('About')
 
