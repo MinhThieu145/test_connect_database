@@ -11,16 +11,28 @@ def init_connection():
 
 conn = init_connection()
 
-# Perform query.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
+def main():
+    st.title('SQL Playground')
 
-rows = run_query("SELECT * from library_schedule;")
+    menu = ['Home', 'About']
+    choice = st.sidebar.selectbox('Menu', menu)
 
-# Print results.
-for row in rows:
-    st.write(row)
+    if choice == 'Home':
+        st.subheader('Home page')
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            with st.form(key='mysql_query_form'):
+                raw_code = st.text_area('SQL Code Here')
+                submit_code = st.form_submit_button('Execute')
+        
+        with col2:
+            if submit_code:
+                st.info('Query Submitted')
+                st.write(raw_code)
+    else:
+        st.subheader('About')
+
+if __name__ == '__main__':
+    main()
