@@ -19,7 +19,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from schedule_11_29;")
+rows = run_query("SELECT * from library_schedule;")
 
 # Print results.
 for row in rows:
