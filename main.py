@@ -11,6 +11,14 @@ def init_connection():
 
 conn = init_connection()
 
+# Form the cursor
+cur = conn.cursor()
+
+def sql_executor(raw_sql_code):
+    cur.execute(raw_sql_code)
+    data = c.fetchall()
+    return data
+
 def main():
     st.title('SQL Playground')
 
@@ -30,7 +38,12 @@ def main():
         with col2:
             if submit_code:
                 st.info('Query Submitted')
-                st.write(raw_code)
+                st.code(raw_code)
+                
+                # Return result
+                query_result = sql_executor(raw_code)
+                
+                st.table(query_result)
     else:
         st.subheader('About')
 
