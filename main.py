@@ -37,10 +37,10 @@ def main():
             st.info('Query Submitted')
             st.write(raw_code)
                 
-                # Return result
-                query_result = sql_executor(raw_code)
-                
-                st.write(query_result)
+            # Return result
+            query_result = sql_executor(raw_code)
+            st.write(query_result)
+            
     else:
         st.subheader('About')
 
