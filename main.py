@@ -27,18 +27,15 @@ def main():
 
     if choice == 'Home':
         st.subheader('Home page')
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            with st.form(key='mysql_query_form'):
-                raw_code = st.text_area('SQL Code Here')
-                submit_code = st.form_submit_button('Execute')
         
-        with col2:
-            if submit_code:
-                st.info('Query Submitted')
-                st.code(raw_code)
+        with st.form(key='mysql_query_form'):
+            raw_code = st.text_area('SQL Code Here')
+            submit_code = st.form_submit_button('Execute')
+        
+        
+        if submit_code:
+            st.info('Query Submitted')
+            st.write(raw_code)
                 
                 # Return result
                 query_result = sql_executor(raw_code)
