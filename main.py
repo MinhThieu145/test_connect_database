@@ -39,7 +39,8 @@ def main():
                 
             # Return result
             query_result = sql_executor(raw_code)
-            st.write(query_result)
+            df = pd.DataFrame(query_result, columns = ['checking_time_uct','current_hour', 'day_of_week', 'current_room_date', 'room','status'])
+            st.dataframe(df)
             
     else:
         st.subheader('About')
