@@ -12,11 +12,11 @@ def init_connection():
 conn = init_connection()
 
 # Form the cursor
-cur = conn.cursor()
+cursor = conn.cursor()
 
 def sql_executor(raw_sql_code):
-    cur.execute(raw_sql_code)
-    data = c.fetchall()
+    cursor.execute(raw_sql_code)
+    data = cursor.fetchall()
     return data
 
 def main():
