@@ -42,6 +42,7 @@ def main():
             query_result = sql_executor(raw_code)
             df = pd.DataFrame(query_result, columns = ['checking_date', 'checking_time', 'hour', 'day_of_week', 'date', 'room','status'])
             st.code(df)
+            st.write(df.dtypes)
             
     else:
         st.subheader('About')
