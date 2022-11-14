@@ -40,7 +40,7 @@ def main():
                 
             # Return result
             query_result = sql_executor(raw_code)
-            df = pd.DataFrame(query_result, columns = ['checking_time_uct','current_hour', 'day_of_week', 'current_room_date', 'room','status'])
+            df = pd.DataFrame(query_result, columns = ['checking_date', 'checking_time', 'hour', 'day_of_week', 'date', 'room','status'])
             st.dataframe(df, width= 1000)
             
     else:
